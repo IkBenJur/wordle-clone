@@ -3,12 +3,36 @@ import { useState, useEffect } from 'react';
 
 function App() {
   const [solution, setSolution] = useState("percy")
-  const [guesses, setGuess] = useState(Array.from(5).fill(null))
+  const [guesses, setGuess] = useState(Array(6).fill(null))
+
+  useEffect(() => {
+    //API Request for word
+    // const randomWordFromAPI =
+    // setSolution(randomWordFromAPI)
+
+
+
+  },[])
+  
+  const Line = ({ guess }) => {
+    const boxes = []
+
+    for(let i = 0; i < solution.length; i++){
+      const char = guess[i]
+      boxes.push(<div key={i} className='box'>{char}</div>)
+    }
+
+    return <div className='line'>{boxes}</div>
+  }
+
+  // "border: 1px solid black; width: 50px; height: 50px"
 
   return (
-    <div> 
+    <div className='game'> 
       <h1>Wordle clone</h1>
-      {console.log(guesses)}
+      {guesses.map((guess, idx) => {
+        return <Line key={idx} guess={guess ? guess: ""} />
+      })}
     </div>
   );
 }
