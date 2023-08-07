@@ -50,6 +50,10 @@ function App() {
     }
 
     window.addEventListener("keydown", onKeyPressed)
+
+    if (guesses.every(value => value)){
+      setIsGameOver(true)
+    }
     
     return () => {
       window.removeEventListener("keydown", onKeyPressed)
