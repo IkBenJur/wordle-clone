@@ -88,9 +88,9 @@ function App() {
         const isCurrenGuess = idx === guesses.findIndex(value => !value)
         return <Line key={idx} guess={isCurrenGuess ? currentGuess : guess ? guess: ""} isCurrenGuess={isCurrenGuess} />
       })}
-      <div style={{display: isGameOver ? "block": "none"}}>
-        <h1 >Solution is: {solution}</h1>
-        <button onClick={resetGameHandler}>Play again!</button>
+      <div style={{display: isGameOver ? "flex": "none"}} className='end-game'>
+        <h1 >Solution is: {solution.toUpperCase()}</h1>
+        <button onClick={resetGameHandler} id="restart-game-button">Play again!</button>
       </div>
     </div>
   );

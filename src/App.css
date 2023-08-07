@@ -1,30 +1,62 @@
+body {
+    background-color: rgb(24, 22, 22);
+    color: whitesmoke;
+}
+
 .game {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
 }
 
 .box{
-    border: 1px solid black;
     width: 50px;
-    height: 50px
+    height: 50px;
+    text-align: center;
+    font-size: 36px;
+    text-transform: capitalize;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgb(99, 88, 87) ;
 }
 
 .line {
     display: flex;
-    gap: 5px;
+    gap: 10px;
 }
 
 .correct {
-    background-color: limegreen;
+    background-color: rgb(44, 124, 44);
 }
 
 .close {
-    background-color: yellow;
+    background-color: rgb(184, 184, 30);
 }
 
 .incorrect { 
-    background-color: gray;
+    background-color: rgb(129, 126, 126);
+}
+
+.end-game {
+    flex-direction: column;
+    align-items: center;
+}
+
+#restart-game-button {
+    width: 120px;
+    height: 35px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(57, 136, 160);
+    box-shadow: 2px 2px rgb(92, 131, 143) ;
+    color: whitesmoke;
+    text-transform: capitalize;
+    transition: 80ms;
+}
+
+#restart-game-button:hover {
+    cursor: pointer;
+    background-color: rgb(47, 189, 233);
+    box-shadow: 2px 2px rgb(91, 182, 194);
 }
