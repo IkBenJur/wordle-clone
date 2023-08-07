@@ -5,12 +5,20 @@ function App() {
   const [solution, setSolution] = useState("percy")
   const [guesses, setGuess] = useState(Array(6).fill(null))
 
+  function onKeyPressed (e) {
+    console.log(e.key)
+  }
+
   useEffect(() => {
     //API Request for word
     // const randomWordFromAPI =
     // setSolution(randomWordFromAPI)
-
-
+    
+    document.addEventListener("keydown", onKeyPressed)
+    
+    return () => {
+      document.removeEventListener("keydown", onKeyPressed)
+    }
 
   },[])
   
@@ -25,7 +33,6 @@ function App() {
     return <div className='line'>{boxes}</div>
   }
 
-  // "border: 1px solid black; width: 50px; height: 50px"
 
   return (
     <div className='game'> 
