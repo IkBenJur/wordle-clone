@@ -5,6 +5,7 @@ function App() {
   const [solution, setSolution] = useState("percy")
   const [guesses, setGuesses] = useState(Array(6).fill(null))
   const [currentGuess, setCurrentguess] = useState("")
+  const [isGameOver, setIsGameOver] = useState(false)
 
   
 
@@ -16,13 +17,16 @@ function App() {
     function onKeyPressed (e) {
       const char = e.key
       const regex = /^[a-z]$/;
+
+      if (isGameOver){
+        return
+      }
   
       //When pressed enter and when chars is not greater than 5 submit to guess
       if (char === 'Enter' && currentGuess.length === 5){
         const newGuessArray = [...guesses]
 
         const indexOfGuess = guesses.findIndex(val => !val)
-        console.log(indexOfGuess)
 
         newGuessArray[indexOfGuess] = currentGuess
 
@@ -46,7 +50,7 @@ function App() {
     return () => {
       window.removeEventListener("keydown", onKeyPressed)
     }
-  },[currentGuess, guesses])
+  },[currentGuess, guesses, isGameOver])
   
   const Line = ({ guess, isCurrenGuess }) => {
     const boxes = []
