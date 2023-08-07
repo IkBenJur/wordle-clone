@@ -20,7 +20,10 @@ function App() {
       //When pressed enter and when chars is not greater than 5 submit to guess
       if (char === 'Enter' && currentGuess.length === 5){
         
+      }
 
+      if (char === 'Backspace') {
+        setCurrentguess(currentGuess.slice(0,-1))
       }
 
       //Listen to only a to z
