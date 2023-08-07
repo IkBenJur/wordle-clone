@@ -32,6 +32,10 @@ function App() {
 
         setCurrentguess("")
         setGuesses(newGuessArray)
+
+        if ( currentGuess === solution) {
+          setIsGameOver(true)
+        }
       }
 
       if (char === 'Backspace') {
