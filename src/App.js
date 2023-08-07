@@ -48,12 +48,15 @@ function App() {
     }
   },[currentGuess, guesses])
   
-  const Line = ({ guess }) => {
+  const Line = ({ guess, isCurrenGuess }) => {
     const boxes = []
 
     for(let i = 0; i < solution.length; i++){
       const char = guess[i]
-      boxes.push(<div key={i} className='box'>{char}</div>)
+
+      const  classnameForStateBox = char === solution[i] ? "correct" : solution.includes(char) ? "close" : "incorrect"
+        
+      boxes.push(<div key={i} className={`box ${isCurrenGuess ? "incorrect" : classnameForStateBox}`}>{char}</div>)
     }
 
     return <div className='line'>{boxes}</div>
@@ -65,7 +68,7 @@ function App() {
       <h1>Wordle clone</h1>
       {guesses.map((guess, idx) => {
         const isCurrenGuess = idx === guesses.findIndex(value => !value)
-        return <Line key={idx} guess={isCurrenGuess ? currentGuess : guess ? guess: ""} />
+        return <Line key={idx} guess={isCurrenGuess ? currentGuess : guess ? guess: ""} isCurrenGuess={isCurrenGuess} />
       })}
     </div>
   );

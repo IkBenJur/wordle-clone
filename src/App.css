@@ -16,3 +16,15 @@
     display: flex;
     gap: 5px;
 }
+
+.correct {
+    background-color: limegreen;
+}
+
+.close {
+    background-color: yellow;
+}
+
+.incorrect { 
+    background-color: gray;
+}
