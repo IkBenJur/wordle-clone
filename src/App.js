@@ -19,7 +19,15 @@ function App() {
   
       //When pressed enter and when chars is not greater than 5 submit to guess
       if (char === 'Enter' && currentGuess.length === 5){
-        
+        const newGuessArray = [...guesses]
+
+        const indexOfGuess = guesses.findIndex(val => !val)
+        console.log(indexOfGuess)
+
+        newGuessArray[indexOfGuess] = currentGuess
+
+        setCurrentguess("")
+        setGuesses(newGuessArray)
       }
 
       if (char === 'Backspace') {
