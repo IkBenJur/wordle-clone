@@ -82,6 +82,7 @@ function App() {
         const isCurrenGuess = idx === guesses.findIndex(value => !value)
         return <Line key={idx} guess={isCurrenGuess ? currentGuess : guess ? guess: ""} isCurrenGuess={isCurrenGuess} />
       })}
+      <h1 style={{display: isGameOver ? "block": "none"}}>Solution is: {solution}</h1>
     </div>
   );
 }
