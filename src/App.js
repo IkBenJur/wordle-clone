@@ -6,14 +6,20 @@ function App() {
   const [guesses, setGuess] = useState(Array(6).fill(null))
 
   function onKeyPressed (e) {
-    console.log(e.key)
+    const char = e.key
+    const regex = /^[a-z]$/;
+
+    //Listen to only a to z
+    if (regex.test(char)){
+      console.log(char)
+    }
   }
 
   useEffect(() => {
     //API Request for word
     // const randomWordFromAPI =
     // setSolution(randomWordFromAPI)
-    
+
     document.addEventListener("keydown", onKeyPressed)
     
     return () => {
