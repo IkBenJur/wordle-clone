@@ -74,6 +74,12 @@ function App() {
     return <div className='line'>{boxes}</div>
   }
 
+  const resetGameHandler = () =>{
+    setSolution("money")
+    setGuesses(Array(6).fill(null))
+    setCurrentguess("")
+    setIsGameOver(false)
+  }
 
   return (
     <div className='game'> 
@@ -82,7 +88,10 @@ function App() {
         const isCurrenGuess = idx === guesses.findIndex(value => !value)
         return <Line key={idx} guess={isCurrenGuess ? currentGuess : guess ? guess: ""} isCurrenGuess={isCurrenGuess} />
       })}
-      <h1 style={{display: isGameOver ? "block": "none"}}>Solution is: {solution}</h1>
+      <div style={{display: isGameOver ? "block": "none"}}>
+        <h1 >Solution is: {solution}</h1>
+        <button onClick={resetGameHandler}>Play again!</button>
+      </div>
     </div>
   );
 }
